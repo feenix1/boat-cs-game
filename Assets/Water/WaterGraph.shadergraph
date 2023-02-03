@@ -7,9 +7,6 @@
             "m_Id": "4ed3c0aad9df4badb8bd4ab70f298748"
         },
         {
-            "m_Id": "d26d8485aab44611b9ea9090b3d1e552"
-        },
-        {
             "m_Id": "5abaf30fe1ab41968621b6be4452d7cd"
         }
     ],
@@ -402,10 +399,10 @@
     "m_Guid": {
         "m_GuidSerialized": "845ac820-0dc9-45e8-b62c-6e0022ba5a37"
     },
-    "m_Name": "Normal Map Small",
+    "m_Name": "Normal Map",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Normal Map Small",
-    "m_DefaultReferenceName": "_Normal_Map_Small",
+    "m_RefNameGeneratedByDisplayName": "Normal Map",
+    "m_DefaultReferenceName": "_Normal_Map",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -432,9 +429,6 @@
     "m_ChildObjectList": [
         {
             "m_Id": "4ed3c0aad9df4badb8bd4ab70f298748"
-        },
-        {
-            "m_Id": "d26d8485aab44611b9ea9090b3d1e552"
         },
         {
             "m_Id": "5abaf30fe1ab41968621b6be4452d7cd"
@@ -680,35 +674,6 @@
         "b": 0.0,
         "a": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "d26d8485aab44611b9ea9090b3d1e552",
-    "m_Guid": {
-        "m_GuidSerialized": "bafbac98-a057-4851-9350-f5b0822c715d"
-    },
-    "m_Name": "Normal Map Large",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Normal Map Large",
-    "m_DefaultReferenceName": "_Normal_Map_Large",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
-        "m_Guid": ""
-    },
-    "isMainTexture": false,
-    "useTilingAndOffset": false,
-    "m_Modifiable": true,
-    "m_DefaultType": 0
 }
 
 {
