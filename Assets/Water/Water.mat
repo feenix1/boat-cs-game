@@ -116,8 +116,8 @@ Material:
     - _Normal_Scroll_Speed_X: 0.2
     - _Normal_Scroll_Speed_Y: 0.1
     - _Normal_Scroll_Tiling: 0.01
-    - _Normal_Static_Sine_Amplitude: 3
-    - _Normal_Static_Sine_Frequency: 1
+    - _Normal_Static_Sine_Amplitude: 59.6
+    - _Normal_Static_Sine_Frequency: 6
     - _Normal_Static_Tiling: 0.001
     - _Normal_Strength: 0.14
     - _Normal_Strength_Scroll_X: 0.18
@@ -146,7 +146,7 @@ Material:
     - _Waves_Large_Scale: 0.27
     - _Waves_Large_Strength: 8
     - _Waves_Small_Scale: 1.4
-    - _Waves_Small_Strength: 2
+    - _Waves_Small_Strength: 1.5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -154,12 +154,12 @@ Material:
     - _Color: {r: 0.16264683, g: 0.6102873, b: 0.8018868, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Noise_Map_Scale: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _Normal_Static_Scroll_Velocity: {r: 25, g: -25, b: 0, a: 0}
+    - _Normal_Static_Scroll_Velocity: {r: -30, g: -59, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular_Color: {r: 0.27, g: 0.27, b: 0.27, a: 1}
     - _Water_Color: {r: 0.007875, g: 0.070875, b: 0.126, a: 0}
     - _Water_Color_Far: {r: 0, g: 0.25279194, b: 0.433, a: 0}
     - _Wave_Velocity: {r: 3, g: 1, b: 0, a: 0}
     - _Waves_Large_Velocity: {r: -25.5, g: -50, b: 0, a: 0}
-    - _Waves_Small_Velocity: {r: 12, g: 9, b: 0, a: 0}
+    - _Waves_Small_Velocity: {r: -17.3, g: -30.5, b: 0, a: 0}
   m_BuildTextureStacks: []
