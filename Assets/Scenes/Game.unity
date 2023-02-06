@@ -310,9 +310,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.070129886, y: -0.000000024352925, z: 0.0000000017120831,
-    w: 0.9975379}
-  m_LocalPosition: {x: 0.00000048345794, y: 22.989145, z: -42.201637}
+  m_LocalRotation: {x: 0.07012988, y: -0.000000007817014, z: 5.4955934e-10, w: 0.9975379}
+  m_LocalPosition: {x: 0.0000001551846, y: 9.399144, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -556,9 +555,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: 0.070129886, y: -0.000000024352925, z: 0.0000000017120831,
-    w: 0.9975379}
-  m_LocalPosition: {x: 0.00000048345794, y: 22.989145, z: -42.201637}
+  m_LocalRotation: {x: 0.07012988, y: -0.000000007817014, z: 5.4955934e-10, w: 0.9975379}
+  m_LocalPosition: {x: 0.0000001551846, y: 9.399144, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -677,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970052714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8179262, y: -1.5522201, z: 15.108168}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1062,7 +1060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149413940814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.69, z: -13.9}
+  m_LocalPosition: {x: 0, y: 0.1, z: -13.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1136,6 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9b9cf368c3ced44844cc70f6bc7fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waveHeightCalculator: {fileID: 4224865409338388038}
   _buoyancyPoints:
   - {fileID: 364618384}
   - {fileID: 1605543835}
@@ -1143,7 +1142,6 @@ MonoBehaviour:
   - {fileID: 1683354837}
   - {fileID: 1672801685}
   - {fileID: 129865564}
-  _waterLevel: {fileID: 3596806102773363967}
   _buoyancyCurve:
     serializedVersion: 2
     m_Curve:
@@ -1168,7 +1166,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _buoyancyForceMultiplier: 60
+  _buoyancyForceMultiplier: 30
   _airDrag: 0.3
   _airAngularDrag: 0.05
   _waterDrag: 1
@@ -1190,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbodyBuoyancy: {fileID: 919132149413940816}
   _rb: {fileID: 919132149413940815}
-  _forwardSpeed: 500
+  _forwardSpeed: 0
   _turnSpeed: 300
 --- !u!23 &952575464818506509
 MeshRenderer:
@@ -1368,15 +1366,15 @@ MonoBehaviour:
   _waterMaterial: {fileID: 2100000, guid: 73f34228d2163534cb8ea3ad4bb37dd0, type: 2}
   _debug: 0
   _waveTiling: 0.25
-  _waveOffset: -4.36
+  _waveOffset: 3.29
   _waveMin: 0
   _waveMax: 20
   _wavesSmallScale: 1.4
   _wavesSmallStrength: 1.5
   _wavesSmallVelocity: {x: -17.3, y: -30.5}
-  _wavesLargeScale: 0.27
+  _wavesLargeScale: 0.41
   _wavesLargeStrength: 8
-  _wavesLargeVelocity: {x: -25.5, y: -50}
+  _wavesLargeVelocity: {x: 0, y: 0}
 --- !u!33 &5278279294201235033
 MeshFilter:
   m_ObjectHideFlags: 0

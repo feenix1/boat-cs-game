@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waveHeightCalculator : MonoBehaviour
+public class WaveHeightCalculator : MonoBehaviour
 {
     [SerializeField] Material _waterMaterial;
     [SerializeField] bool _debug;
@@ -41,7 +41,6 @@ public class waveHeightCalculator : MonoBehaviour
     }
     public float GetWaveHeightAtPosition(Vector3 position)
     {
-        Debug.Log("GetWaveHeightAtPosition");
         Vector2 noiseMapUV;
         noiseMapUV = new Vector2(position.x, position.z) * _waveTiling;
         // Calculate Small Waves
@@ -64,9 +63,9 @@ public class waveHeightCalculator : MonoBehaviour
     {
         if (_debug)
         {
-            for (int x = -5; x < 5; x++)
+            for (int x = -50; x < 50; x++)
             {
-                for (int z = -5; z < 5; z++)
+                for (int z = -50; z < 50; z++)
                 {
                     Vector3 position = new Vector3(x, 0, z);
                     float waveHeight = GetWaveHeightAtPosition(position);

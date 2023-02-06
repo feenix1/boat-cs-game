@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class RigidbodyBuoyancy : MonoBehaviour
 {
+    [SerializeField] private WaveHeightCalculator _waveHeightCalculator;
     private Rigidbody _rb;
     [SerializeField] private Transform[] _buoyancyPoints;
-    [SerializeField] private Transform _waterLevel;
 
     // Arcade approach
     [Tooltip("X represents the absolute value of water depth. Y represents resulting force.")]
@@ -29,6 +29,7 @@ public class RigidbodyBuoyancy : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        _waveHeightCalculator = GameObject.Find("Water").GetComponent<WaveHeightCalculator>();
         if (_rb == null)
         {
             Debug.LogError("RigidbodyBuoyancy: Rigidbody component is null!");
@@ -37,7 +38,7 @@ public class RigidbodyBuoyancy : MonoBehaviour
         {
             Debug.LogError("RigidbodyBuoyancy: 'ObjectLowestPoint' Transform is null!");
         }
-        if (_waterLevel == null)
+        if (_waveHeightCalculator == null)
         {
             Debug.LogError("RigidbodyBuoyancy: 'WaterLevel' Tranform is null!");
         }
@@ -68,8 +69,7 @@ public class RigidbodyBuoyancy : MonoBehaviour
     // Change function to run same calculations as waves for water shader, then use that to determine depth
     float CalculateWaterDepth(Transform buoyancyPoint)
     {
-        
-        return buoyancyPoint.position.y - _waterLevel.position.y;
+        return buoyancyPoint.position.y - _waveHeightCalculator.GetWaveHeightAtPosition(buoyancyPoint.position);
     }
     float CalculateBuoyancy(AnimationCurve buoyancyCurve, float waterDepth)
     {
@@ -93,18 +93,23 @@ public class RigidbodyBuoyancy : MonoBehaviour
             {
                 for (int i = 0; i < _buoyancyPoints.Length; i++)
                 {
-                    float waterDepth = _buoyancyPoints[i].position.y - _waterLevel.position.y;
+                    float waterDepth = _buoyancyPoints[i].position.y - _waveHeightCalculator.GetWaveHeightAtPosition(_buoyancyPoints[i].position);
                     if (waterDepth < 0)
                     {
                         Gizmos.color = Color.blue;
-                        Gizmos.DrawSphere(_buoyancyPoints[i].position, 0.1f);
-                        UnityEditor.Handles.Label(_buoyancyPoints[i].position, $"Depth: {waterDepth.ToString()} Force: {CalculateBuoyancy(_buoyancyCurve, waterDepth).ToString()}");
+                        Gizmos.DrawSphere(_buoyancyPoints[i].position, 0.1f); // Draw sphere at buoyancy point
+                        Gizmos.color = Color.green;
+                        Gizmos.DrawSphere(new Vector3(_buoyancyPoints[i].position.x, _waveHeightCalculator.GetWaveHeightAtPosition(_buoyancyPoints[i].position), _buoyancyPoints[i].position.z), 0.1f); // Draw sphere at water level
+                        UnityEditor.Handles.Label(_buoyancyPoints[i].position, $"Depth: {waterDepth.ToString()} Force: {CalculateBuoyancy(_buoyancyCurve, waterDepth).ToString()}"); 
+                        // Draw line from buoyancy point to force vector
+                        Debug.DrawLine(_buoyancyPoints[i].position, new Vector3(_buoyancyPoints[i].position.x, CalculateBuoyancy(_buoyancyCurve, waterDepth) / 10, _buoyancyPoints[i].position.z), Color.blue); 
                     }
                     else
                     {
                         Gizmos.color = Color.red;
                         Gizmos.DrawSphere(_buoyancyPoints[i].position, 0.1f);
                         UnityEditor.Handles.Label(_buoyancyPoints[i].position, $"Depth: {waterDepth.ToString()} Force: N/A");
+                        Debug.DrawLine(_buoyancyPoints[i].position, new Vector3(_buoyancyPoints[i].position.x, CalculateBuoyancy(_buoyancyCurve, waterDepth) / 10, _buoyancyPoints[i].position.z), Color.red);
                     }
                 }
             }
