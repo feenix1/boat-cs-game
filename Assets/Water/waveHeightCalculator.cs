@@ -5,7 +5,9 @@ using UnityEngine;
 public class WaveHeightCalculator : MonoBehaviour
 {
     [SerializeField] Material _waterMaterial;
-    [SerializeField] bool _debug;
+    [Header("Debug")][SerializeField] bool _debug;
+    [SerializeField] int _debugGridSize;
+    [SerializeField] float _debugGridScale;
 
     [Header("Waves")]
     [SerializeField] float _waveTiling;
@@ -63,14 +65,15 @@ public class WaveHeightCalculator : MonoBehaviour
     {
         if (_debug)
         {
-            for (int x = -50; x < 50; x++)
+            for (int x = -_debugGridSize; x < _debugGridSize; x++)
             {
-                for (int z = -50; z < 50; z++)
+                for (int z = -_debugGridSize; z < _debugGridSize; z++)
                 {
-                    Vector3 position = new Vector3(x, 0, z);
+                    Vector3 position = new Vector3(x * _debugGridScale, 0, z * _debugGridScale);
                     float waveHeight = GetWaveHeightAtPosition(position);
                     position.y = waveHeight;
                     Gizmos.DrawSphere(position, 0.1f);
+                    Gizmos.DrawLine(new Vector3(position.x, 0, position.z), new Vector3(position.x, waveHeight, position.z));
                 }
             }
         }    

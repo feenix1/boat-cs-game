@@ -310,8 +310,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.07012988, y: -0.000000007817014, z: 5.4955934e-10, w: 0.9975379}
-  m_LocalPosition: {x: 0.0000001551846, y: 9.399144, z: -42.201637}
+  m_LocalRotation: {x: 0.070129864, y: 0.000000022343201, z: -0.000000001570793, w: 0.9975379}
+  m_LocalPosition: {x: -0.00000044356068, y: 9.399144, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555,8 +555,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: 0.07012988, y: -0.000000007817014, z: 5.4955934e-10, w: 0.9975379}
-  m_LocalPosition: {x: 0.0000001551846, y: 9.399144, z: -42.201637}
+  m_LocalRotation: {x: 0.070129864, y: 0.000000022343201, z: -0.000000001570793, w: 0.9975379}
+  m_LocalPosition: {x: -0.00000044356068, y: 9.399144, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1364,17 +1364,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waterMaterial: {fileID: 2100000, guid: 73f34228d2163534cb8ea3ad4bb37dd0, type: 2}
-  _debug: 0
+  _debug: 1
+  _debugGridSize: 5
+  _debugGridScale: 1.86
   _waveTiling: 0.25
-  _waveOffset: 3.29
+  _waveOffset: -4.36
   _waveMin: 0
   _waveMax: 20
   _wavesSmallScale: 1.4
   _wavesSmallStrength: 1.5
   _wavesSmallVelocity: {x: -17.3, y: -30.5}
-  _wavesLargeScale: 0.41
+  _wavesLargeScale: 0.27
   _wavesLargeStrength: 8
-  _wavesLargeVelocity: {x: 0, y: 0}
+  _wavesLargeVelocity: {x: -25.5, y: -50}
 --- !u!33 &5278279294201235033
 MeshFilter:
   m_ObjectHideFlags: 0
