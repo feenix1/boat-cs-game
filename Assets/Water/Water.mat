@@ -142,7 +142,7 @@ Material:
     - _Wave_Offset: -4.36
     - _Wave_Scale: 0.5
     - _Wave_Strength: 3.5
-    - _Wave_Tiling: 3.13
+    - _Wave_Tiling: 0.25
     - _Waves_Large_Scale: 0.27
     - _Waves_Large_Strength: 8
     - _Waves_Small_Scale: 1.4

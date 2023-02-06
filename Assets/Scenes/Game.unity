@@ -596,13 +596,6 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     m_SensorSize: {x: 1, y: 1}
-    Iso: 200
-    ShutterSpeed: 0.005
-    Aperture: 16
-    BladeCount: 5
-    Curvature: {x: 2, y: 11}
-    BarrelClipping: 0.25
-    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1352,6 +1345,7 @@ GameObject:
   - component: {fileID: 3596806102773363967}
   - component: {fileID: 451969155043457882}
   - component: {fileID: 2423289287976718224}
+  - component: {fileID: 4224865409338388038}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -1359,6 +1353,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4224865409338388038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224865409338388037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a8f0e004d7afb42bea1b9051252aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterMaterial: {fileID: 2100000, guid: 73f34228d2163534cb8ea3ad4bb37dd0, type: 2}
+  _debug: 0
+  _waveTiling: 0.25
+  _waveOffset: -4.36
+  _waveMin: 0
+  _waveMax: 20
+  _wavesSmallScale: 1.4
+  _wavesSmallStrength: 1.5
+  _wavesSmallVelocity: {x: -17.3, y: -30.5}
+  _wavesLargeScale: 0.27
+  _wavesLargeStrength: 8
+  _wavesLargeVelocity: {x: -25.5, y: -50}
 --- !u!33 &5278279294201235033
 MeshFilter:
   m_ObjectHideFlags: 0
