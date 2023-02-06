@@ -41,6 +41,7 @@ public class RigidbodyBuoyancy : MonoBehaviour
         {
             Debug.LogError("RigidbodyBuoyancy: 'WaterLevel' Tranform is null!");
         }
+        _rb.centerOfMass = Vector3.zero;
     }
 
     void FixedUpdate()
@@ -48,7 +49,7 @@ public class RigidbodyBuoyancy : MonoBehaviour
         _buoyancyPointsUnderwater = 0;
         for (int i = 0; i < _buoyancyPoints.Length; i++)
         {
-            float waterDepth = _buoyancyPoints[i].position.y - _waterLevel.position.y;
+            float waterDepth = CalculateWaterDepth(_buoyancyPoints[i]);
             if (waterDepth < 0)
             {
                 _buoyancyPointsUnderwater += 1;
@@ -63,6 +64,12 @@ public class RigidbodyBuoyancy : MonoBehaviour
         {
             isUnderwater = false;
         }
+    }
+    // Change function to run same calculations as waves for water shader, then use that to determine depth
+    float CalculateWaterDepth(Transform buoyancyPoint)
+    {
+        
+        return buoyancyPoint.position.y - _waterLevel.position.y;
     }
     float CalculateBuoyancy(AnimationCurve buoyancyCurve, float waterDepth)
     {
