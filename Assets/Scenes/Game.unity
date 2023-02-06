@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -310,8 +310,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.070129864, y: 0.000000022343201, z: -0.000000001570793, w: 0.9975379}
-  m_LocalPosition: {x: -0.00000044356068, y: 9.399144, z: -42.201637}
+  m_LocalRotation: {x: 0.07012987, y: 0.000000018022153, z: -0.0000000012670108, w: 0.99753785}
+  m_LocalPosition: {x: -0.0000003577785, y: 9.399144, z: -42.20164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555,8 +555,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: 0.070129864, y: 0.000000022343201, z: -0.000000001570793, w: 0.9975379}
-  m_LocalPosition: {x: -0.00000044356068, y: 9.399144, z: -42.201637}
+  m_LocalRotation: {x: 0.07012987, y: 0.000000018022153, z: -0.0000000012670108, w: 0.99753785}
+  m_LocalPosition: {x: -0.0000003577785, y: 9.399144, z: -42.20164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1134,7 +1134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9b9cf368c3ced44844cc70f6bc7fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveHeightCalculator: {fileID: 4224865409338388038}
   _buoyancyPoints:
   - {fileID: 364618384}
   - {fileID: 1605543835}
@@ -1142,6 +1141,7 @@ MonoBehaviour:
   - {fileID: 1683354837}
   - {fileID: 1672801685}
   - {fileID: 129865564}
+  _waterTransform: {fileID: 3596806102773363967}
   _buoyancyCurve:
     serializedVersion: 2
     m_Curve:
@@ -1166,7 +1166,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _buoyancyForceMultiplier: 30
+  _buoyancyForceMultiplier: 60
   _airDrag: 0.3
   _airAngularDrag: 0.05
   _waterDrag: 1
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbodyBuoyancy: {fileID: 919132149413940816}
   _rb: {fileID: 919132149413940815}
-  _forwardSpeed: 0
+  _forwardSpeed: 1000
   _turnSpeed: 300
 --- !u!23 &952575464818506509
 MeshRenderer:
@@ -1343,7 +1343,6 @@ GameObject:
   - component: {fileID: 3596806102773363967}
   - component: {fileID: 451969155043457882}
   - component: {fileID: 2423289287976718224}
-  - component: {fileID: 4224865409338388038}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -1351,32 +1350,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4224865409338388038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4224865409338388037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a8f0e004d7afb42bea1b9051252aa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waterMaterial: {fileID: 2100000, guid: 73f34228d2163534cb8ea3ad4bb37dd0, type: 2}
-  _debug: 1
-  _debugGridSize: 5
-  _debugGridScale: 1.86
-  _waveTiling: 0.25
-  _waveOffset: -4.36
-  _waveMin: 0
-  _waveMax: 20
-  _wavesSmallScale: 1.4
-  _wavesSmallStrength: 1.5
-  _wavesSmallVelocity: {x: -17.3, y: -30.5}
-  _wavesLargeScale: 0.27
-  _wavesLargeStrength: 8
-  _wavesLargeVelocity: {x: -25.5, y: -50}
 --- !u!33 &5278279294201235033
 MeshFilter:
   m_ObjectHideFlags: 0

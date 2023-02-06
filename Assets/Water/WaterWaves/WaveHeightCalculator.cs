@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveHeightCalculator : MonoBehaviour
 {
     [SerializeField] Material _waterMaterial;
-    [Header("Debug")][SerializeField] bool _debug;
+    [Header("Debug")] [SerializeField] bool _debug;
     [SerializeField] int _debugGridSize;
     [SerializeField] float _debugGridScale;
 
@@ -60,7 +60,8 @@ public class WaveHeightCalculator : MonoBehaviour
         // Offset
         waveHeight += _waveOffset;
         return waveHeight;
-    }
+    } //
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (_debug)
@@ -76,35 +77,36 @@ public class WaveHeightCalculator : MonoBehaviour
                     Gizmos.DrawLine(new Vector3(position.x, 0, position.z), new Vector3(position.x, waveHeight, position.z));
                 }
             }
-        }    
+        }
     }
+    #endif
     // imported from the generated shader code: convert to C# ----------------------------------
-    float float_frac(float x) { return x - Mathf.Floor(x);}
-    Vector2 frac(Vector2 x) { return x - new Vector2(Mathf.Floor(x.x), Mathf.Floor(x.y));}
-    float sin(float x) { return Mathf.Sin(x);}
-    float dot(Vector2 a, Vector2 b) { return a.x * b.x + a.y * b.y;}
-    float float_floor(float x) { return Mathf.Floor(x);}
-    Vector2 floor(Vector2 x) { return new Vector2(Mathf.Floor(x.x), Mathf.Floor(x.y));}
-    float float_abs(float x) { return Mathf.Abs(x);}
-    Vector2 abs(Vector2 x) { return new Vector2(Mathf.Abs(x.x), Mathf.Abs(x.y));}
-    float pow (float x, float y) { return Mathf.Pow(x, y);}
+    float float_frac(float x) { return x - Mathf.Floor(x); }
+    Vector2 frac(Vector2 x) { return x - new Vector2(Mathf.Floor(x.x), Mathf.Floor(x.y)); }
+    float sin(float x) { return Mathf.Sin(x); }
+    float dot(Vector2 a, Vector2 b) { return a.x * b.x + a.y * b.y; }
+    float float_floor(float x) { return Mathf.Floor(x); }
+    Vector2 floor(Vector2 x) { return new Vector2(Mathf.Floor(x.x), Mathf.Floor(x.y)); }
+    float float_abs(float x) { return Mathf.Abs(x); }
+    Vector2 abs(Vector2 x) { return new Vector2(Mathf.Abs(x.x), Mathf.Abs(x.y)); }
+    float pow(float x, float y) { return Mathf.Pow(x, y); }
 
-    float Unity_SimpleNoise_RandomValue_float (Vector2 uv)
+    float Unity_SimpleNoise_RandomValue_float(Vector2 uv)
     {
         float angle = dot(uv, new Vector2(12.9898f, 78.233f));
         return float_frac(sin(angle) * 43758.5453f);
     }
-    float Unity_SimpleNnoise_Interpolate_float (float a, float b, float t)
+    float Unity_SimpleNnoise_Interpolate_float(float a, float b, float t)
     {
         return (1.0f - t) * a + (t * b);
     }
-    float Unity_SimpleNoise_ValueNoise_float (Vector2 uv)
+    float Unity_SimpleNoise_ValueNoise_float(Vector2 uv)
     {
         Vector2 i = floor(uv);
         Vector2 f = frac(uv);
-        f = (f * f) * (new Vector2 (3.0f, 3.0f) - new Vector2(2.0f, 2.0f) * f);
+        f = (f * f) * (new Vector2(3.0f, 3.0f) - new Vector2(2.0f, 2.0f) * f);
 
-        uv = abs(frac(uv) - new Vector2 (0.5f, 0.5f));
+        uv = abs(frac(uv) - new Vector2(0.5f, 0.5f));
         Vector2 c0 = i + new Vector2(0.0f, 0.0f);
         Vector2 c1 = i + new Vector2(1.0f, 0.0f);
         Vector2 c2 = i + new Vector2(0.0f, 1.0f);
@@ -124,15 +126,15 @@ public class WaveHeightCalculator : MonoBehaviour
         float t = 0.0f;
 
         float freq = pow(2.0f, 0);
-        float amp = pow(0.5f, 3-0);
-        t += Unity_SimpleNoise_ValueNoise_float(new Vector2(UV.x*Scale/freq, UV.y*Scale/freq))*amp;
+        float amp = pow(0.5f, 3 - 0);
+        t += Unity_SimpleNoise_ValueNoise_float(new Vector2(UV.x * Scale / freq, UV.y * Scale / freq)) * amp;
 
         freq = pow(2.0f, 1);
-        amp = pow(0.5f, 3-1);
+        amp = pow(0.5f, 3 - 1);
         t += Unity_SimpleNoise_ValueNoise_float(new Vector2(UV.x * Scale / freq, UV.y * Scale / freq)) * amp;
 
         freq = pow(2.0f, 2);
-        amp = pow(0.5f, 3-2);
+        amp = pow(0.5f, 3 - 2);
         t += Unity_SimpleNoise_ValueNoise_float(new Vector2(UV.x * Scale / freq, UV.y * Scale / freq)) * amp;
 
         return t;

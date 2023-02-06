@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2318849572769093499
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: WaterWaves
   m_Shader: {fileID: -6465566751694194690, guid: c18dcf9c87e15bb429ea395cfab84ade,
     type: 3}
   m_ValidKeywords: []
@@ -137,16 +124,16 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Wave_Max: 2.74
-    - _Wave_Min: -1
-    - _Wave_Offset: -2.57
+    - _Wave_Max: 20
+    - _Wave_Min: 0
+    - _Wave_Offset: -4.36
     - _Wave_Scale: 0.5
     - _Wave_Strength: 3.5
     - _Wave_Tiling: 0.25
     - _Waves_Large_Scale: 0.27
-    - _Waves_Large_Strength: 4.51
+    - _Waves_Large_Strength: 8
     - _Waves_Small_Scale: 1.4
-    - _Waves_Small_Strength: 2.65
+    - _Waves_Small_Strength: 1.5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -163,3 +150,16 @@ Material:
     - _Waves_Large_Velocity: {r: -25.5, g: -50, b: 0, a: 0}
     - _Waves_Small_Velocity: {r: -17.3, g: -30.5, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &3096964596207714745
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
