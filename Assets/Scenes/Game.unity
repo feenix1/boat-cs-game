@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,7 +154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 970052715}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!154 &91504456
 TerrainCollider:
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 129865564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: forward-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,8 +310,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.070129886, y: -0.0000000024060838, z: 1.6915483e-10, w: 0.99753785}
-  m_LocalPosition: {x: 0.000000047765965, y: 9.629146, z: -42.20164}
+  m_LocalRotation: {x: 0.070129886, y: 0.000000015262133, z: -0.0000000010729734,
+    w: 0.9975379}
+  m_LocalPosition: {x: -0.00000030298617, y: 9.629145, z: -42.201633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364618384}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,8 +556,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: 0.070129886, y: -0.0000000024060838, z: 1.6915483e-10, w: 0.99753785}
-  m_LocalPosition: {x: 0.000000047765965, y: 9.629146, z: -42.20164}
+  m_LocalRotation: {x: 0.070129886, y: 0.000000015262133, z: -0.0000000010729734,
+    w: 0.9975379}
+  m_LocalPosition: {x: -0.00000030298617, y: 9.629145, z: -42.201633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -660,9 +662,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 861498526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon Support
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -695,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899034685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899034684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 20.43}
+  m_LocalPosition: {x: -0, y: 0.041, z: 23.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -745,8 +747,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 91504455}
   - {fileID: 3596806102773363967}
+  - {fileID: 91504455}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -875,7 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240147046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1605543835}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672801685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 'forward-left '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683354837}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768563414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: canoe-model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892040139}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: buoyancyPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1215,7 @@ GameObject:
   - component: {fileID: 6363451224020348268}
   - component: {fileID: 5278279294201235033}
   - component: {fileID: 952575464818506509}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: canoe-planks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1235,7 @@ GameObject:
   - component: {fileID: 919132149413940816}
   - component: {fileID: 919132149413940817}
   - component: {fileID: 919132149413940818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1268,6 +1270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9b9cf368c3ced44844cc70f6bc7fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waveHeightCalculator: {fileID: 4224865409338388039}
+  _useWaveHeightCalculator: 1
   _buoyancyPoints:
   - {fileID: 364618384}
   - {fileID: 1605543835}
@@ -1307,7 +1311,7 @@ MonoBehaviour:
   _waterAngularDrag: 1.01
   _buoyancyPointsUnderwater: 0
   isUnderwater: 0
-  _debug: 1
+  _debug: 0
 --- !u!114 &919132149413940817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,16 +1340,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0356c18f9430fc479d6b00ee6ba16b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usePlayerInput: 1
   firePoint: {fileID: 899034685}
-  recoilVector: {x: 0, y: 0, z: -1000}
+  recoilVector: {x: 0, y: -40, z: -1000}
   rb: {fileID: 919132149413940815}
-  shootSound: {fileID: 0}
   audioSource: {fileID: 8365299822465720700}
-  projectile: {fileID: 8725448618956409892, guid: 3a8baaacecb2d89499c836a8e22b4939,
+  shootSound: {fileID: 8300000, guid: bc486677b0b51d340b43226ca461230f, type: 3}
+  shootParticlePrefab: {fileID: 6435045441205199768, guid: 78fbe142bd1c13c4b95568af4fa58f61,
     type: 3}
-  shootInput: 0
-  shootDelay: 1
-  timeSinceLastShot: 0
+  projectilePrefab: {fileID: 8725448618956409892, guid: 3a8baaacecb2d89499c836a8e22b4939,
+    type: 3}
+  fireForce: 40
+  shootDelay: 2
   _debug: 1
 --- !u!23 &952575464818506509
 MeshRenderer:
@@ -1592,9 +1598,9 @@ GameObject:
   - component: {fileID: 7560869072779914712}
   - component: {fileID: 8052393832385157602}
   - component: {fileID: 2182994175840825619}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right Mount
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1607,12 +1613,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4224865409338388037}
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 970052715}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4031982759436835543
 GameObject:
@@ -1623,9 +1629,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4377404664439308397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1641,13 +1647,55 @@ GameObject:
   - component: {fileID: 3596806102773363967}
   - component: {fileID: 451969155043457882}
   - component: {fileID: 2423289287976718224}
-  m_Layer: 0
+  - component: {fileID: 4224865409338388038}
+  - component: {fileID: 4224865409338388039}
+  m_Layer: 4
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4224865409338388038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224865409338388037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: 0, y: -0.98, z: 0}
+--- !u!114 &4224865409338388039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224865409338388037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a8f0e004d7afb42bea1b9051252aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterMaterial: {fileID: 2100000, guid: 73f34228d2163534cb8ea3ad4bb37dd0, type: 2}
+  _waveBuoyancyScale: 0.25
+  _debug: 0
+  _debugGridSize: 5
+  _debugGridScale: 5
+  _waveTiling: 0.25
+  _waveOffset: -0.98
+  _waveMin: -1
+  _waveMax: 12312
+  _wavesSmallScale: 2.13
+  _wavesSmallStrength: 1.46
+  _wavesSmallVelocity: {x: -17.3, y: -30.5}
+  _wavesLargeScale: 0.27
+  _wavesLargeStrength: 0
+  _wavesLargeVelocity: {x: -25.5, y: -50}
 --- !u!4 &4377404664439308397
 Transform:
   m_ObjectHideFlags: 0
@@ -1656,7 +1704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031982759436835543}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.186, z: 0}
+  m_LocalPosition: {x: 0, y: 0.158, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1772,9 +1820,9 @@ GameObject:
   - component: {fileID: 4444660452787652849}
   - component: {fileID: 6097055599065385235}
   - component: {fileID: 6399239456026341125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right Bracket
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1807,9 +1855,9 @@ GameObject:
   - component: {fileID: 8365299822465720699}
   - component: {fileID: 884023546706451304}
   - component: {fileID: 8365299822465720700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon Barrel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1825,9 +1873,9 @@ GameObject:
   - component: {fileID: 190341740709763885}
   - component: {fileID: 2215214494726208958}
   - component: {fileID: 2358411355792021276}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left Bracket
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1844,7 +1892,7 @@ GameObject:
   - component: {fileID: 5990030119164280403}
   - component: {fileID: 2800666308332963610}
   - component: {fileID: 7260421936796359621}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: canoe-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1994,7 +2042,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2045,9 +2093,9 @@ GameObject:
   - component: {fileID: 2007190574701191312}
   - component: {fileID: 70941433505391956}
   - component: {fileID: 7286210406837308733}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left Mount
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Water
   - Terrain
+  - Projectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Terrain

@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2318849572769093499
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,17 +7,22 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: c18dcf9c87e15bb429ea395cfab84ade,
-    type: 3}
-  m_ValidKeywords: []
+  m_Name: WaterParticleMaterial
+  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
+  - _ALPHABLEND_ON
+  - _EMISSION
+  - _FADING_ON
+  - _REQUIRE_UV2
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - GRABPASS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -59,15 +51,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3057dcd0b503dc14fb0b87e50f2ccbec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: 70a8d4649170adf4b871fdea21960948, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -98,68 +86,65 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _ColorMode: 0
+    - _Cull: 0
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 0
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0.1
+    - _DstBlend: 10
+    - _EmissionEnabled: 1
     - _EnvironmentReflections: 1
+    - _FlipbookMode: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
-    - _GlossinessSource: 0
     - _GlossyReflections: 0
+    - _LightingEnabled: 0
     - _Metallic: 0
-    - _Normal_Scroll_Speed: 1
-    - _Normal_Scroll_Speed_X: 0.2
-    - _Normal_Scroll_Speed_Y: 0.1
-    - _Normal_Scroll_Tiling: 0.01
-    - _Normal_Static_Sine_Amplitude: 59.6
-    - _Normal_Static_Sine_Frequency: 6
-    - _Normal_Static_Tiling: 0.001
-    - _Normal_Strength: 0.14
-    - _Normal_Strength_Scroll_X: 0.18
-    - _Normal_Strength_Scroll_Y: 0.19
-    - _Normal_Strength_Static: 0.26
-    - _Normal_Tiling: 0.01
+    - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shininess: 0
-    - _Smoothness: 0.8
-    - _SmoothnessSource: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SpecSource: 0
+    - _SoftParticlesEnabled: 1
+    - _SoftParticlesFarFadeDistance: 2.52
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Surface: 0
-    - _Wave_Max: 12312
-    - _Wave_Min: -1
-    - _Wave_Offset: -0.98
-    - _Wave_Scale: 0.5
-    - _Wave_Strength: 3.5
-    - _Wave_Tiling: 0.25
-    - _Waves_Large_Scale: 0.27
-    - _Waves_Large_Strength: 0
-    - _Waves_Small_Scale: 2.13
-    - _Waves_Small_Strength: 1.46
     - _WorkflowMode: 1
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.16264686, g: 0.61028737, b: 0.8018868, a: 1}
-    - _Color: {r: 0.16264683, g: 0.6102873, b: 0.8018868, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Noise_Map_Scale: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _Normal_Static_Scroll_Velocity: {r: -30, g: -59, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0.1081128, g: 0.675705, b: 1.7207954, a: 1}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 1.081128, b: 2.8289516, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0.3968254, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_Color: {r: 0.27, g: 0.27, b: 0.27, a: 1}
-    - _Water_Color: {r: 0.007875, g: 0.070875, b: 0.126, a: 0}
-    - _Water_Color_Far: {r: 0, g: 0.25279194, b: 0.433, a: 0}
-    - _Wave_Velocity: {r: 3, g: 1, b: 0, a: 0}
-    - _Waves_Large_Velocity: {r: -25.5, g: -50, b: 0, a: 0}
-    - _Waves_Small_Velocity: {r: -17.3, g: -30.5, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &2736479180893191608
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

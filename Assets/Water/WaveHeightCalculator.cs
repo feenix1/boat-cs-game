@@ -5,6 +5,7 @@ using UnityEngine;
 public class WaveHeightCalculator : MonoBehaviour
 {
     [SerializeField] Material _waterMaterial;
+    [SerializeField] float _waveBuoyancyScale;
     [Header("Debug")] [SerializeField] bool _debug;
     [SerializeField] int _debugGridSize;
     [SerializeField] float _debugGridScale;
@@ -59,6 +60,8 @@ public class WaveHeightCalculator : MonoBehaviour
         waveHeight = Mathf.Clamp(waveHeight, _waveMin, _waveMax);
         // Offset
         waveHeight += _waveOffset;
+        // Scale
+        waveHeight *= _waveBuoyancyScale;
         return waveHeight;
     } //
     #if UNITY_EDITOR
