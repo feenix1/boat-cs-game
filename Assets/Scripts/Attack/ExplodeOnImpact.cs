@@ -57,9 +57,10 @@ public class ExplodeOnImpact : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider nearbyObject in colliders)
         {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            Rigidbody rb = nearbyObject.gameObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                Debug.Log($"ExplodeOnImpact: Adding force to Rigidbody of {nearbyObject.gameObject}");
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
         }

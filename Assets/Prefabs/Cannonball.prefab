@@ -4925,8 +4925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 6435045441205199768, guid: cde4a629ef9e9c440920828d0283b716,
     type: 3}
-  explosionForce: 100
-  explosionRadius: 20
+  explosionForce: 10000
+  explosionRadius: 200
   audioSource: {fileID: 6811761232672629153}
   sinkSound: {fileID: 8300000, guid: a1dfc6f95fdf9644e989d35dc0f67594, type: 3}
   explosionSound: {fileID: 8300000, guid: a1dfc6f95fdf9644e989d35dc0f67594, type: 3}
