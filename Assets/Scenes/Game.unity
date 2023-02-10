@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,9 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 54607667}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: right
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,9 +163,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83414514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: back
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 277850341}
   - component: {fileID: 277850340}
   - component: {fileID: 277850339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -504,8 +504,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.0701299, y: -1.465315e-23, z: 1.0301604e-24, w: 0.99753785}
-  m_LocalPosition: {x: 2.9089656e-22, y: 9.709146, z: -42.201633}
+  m_LocalRotation: {x: 0.07012992, y: -0.000000016201883, z: 0.0000000011390411, w: 0.9975379}
+  m_LocalPosition: {x: 0.00000032164223, y: 9.709146, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -736,9 +736,9 @@ GameObject:
   - component: {fileID: 433167934}
   - component: {fileID: 433167936}
   - component: {fileID: 433167935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Mount
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -817,9 +817,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522726578}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: buoyancyPoints
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -869,8 +869,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: 0.0701299, y: -1.465315e-23, z: 1.0301604e-24, w: 0.99753785}
-  m_LocalPosition: {x: 2.9089656e-22, y: 9.709146, z: -42.201633}
+  m_LocalRotation: {x: 0.07012992, y: -0.000000016201883, z: 0.0000000011390411, w: 0.9975379}
+  m_LocalPosition: {x: 0.00000032164223, y: 9.709146, z: -42.201637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -927,9 +927,9 @@ GameObject:
   - component: {fileID: 708099163}
   - component: {fileID: 708099165}
   - component: {fileID: 708099164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Mount
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,9 +1008,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714622560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: left
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,9 +1041,9 @@ GameObject:
   - component: {fileID: 807063619}
   - component: {fileID: 807063621}
   - component: {fileID: 807063620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Bracket
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,9 +1270,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1001147384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: forward-right
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1301,9 +1301,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069771896}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cannon Support
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1483,9 +1483,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321003405}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'forward-left '
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1514,9 +1514,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516971132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: forward
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1576,9 +1576,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1639195356}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: canoe-model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1709,9 +1709,9 @@ GameObject:
   - component: {fileID: 1712975741}
   - component: {fileID: 1712975740}
   - component: {fileID: 1712975739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cannon Barrel
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1890,9 +1890,9 @@ GameObject:
   - component: {fileID: 1758302649}
   - component: {fileID: 1758302651}
   - component: {fileID: 1758302650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: canoe-planks
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2007,9 +2007,10 @@ GameObject:
   - component: {fileID: 1795569706}
   - component: {fileID: 1795569705}
   - component: {fileID: 1795569704}
-  m_Layer: 0
+  - component: {fileID: 1795569707}
+  m_Layer: 7
   m_Name: canoe-base
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2094,6 +2095,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795569702}
   m_Mesh: {fileID: -318616179682599191, guid: 75345ff759656114caf0b4d498da23c8, type: 3}
+--- !u!114 &1795569707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795569702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b918186c959c1f4dbf9329d67acdc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbodyReference: {fileID: 277850341}
 --- !u!1 &1818435806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,9 +2117,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818435807}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cannon
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2175,9 +2189,9 @@ GameObject:
   - component: {fileID: 1953820906}
   - component: {fileID: 1953820908}
   - component: {fileID: 1953820907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Bracket
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,9 +2270,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2035710746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Point
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
