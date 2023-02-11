@@ -77,7 +77,10 @@ public class ExplodeOnImpact : MonoBehaviour
         }
         audioSource.clip = explosionSound;
         audioSource.Play();
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
         Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.duration);
-        Destroy(gameObject);
+        Destroy(gameObject, audioSource.clip.length);
     }
 }
