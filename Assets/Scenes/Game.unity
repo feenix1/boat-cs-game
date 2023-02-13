@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 277850341}
   - component: {fileID: 277850340}
   - component: {fileID: 277850339}
+  - component: {fileID: 277850343}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -426,6 +427,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &277850343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277850338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55a4b8353af94b3192d8de6108f5730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  onHealthZero:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 277850340}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,8 +533,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: -0.000936163, y: 0.997449, z: -0.070123665, w: -0.013316116}
-  m_LocalPosition: {x: 1.0987513, y: 9.709145, z: 14.386964}
+  m_LocalRotation: {x: -0.00093616353, y: 0.997449, z: -0.070123635, w: -0.013316128}
+  m_LocalPosition: {x: 1.0987515, y: 9.709145, z: 14.386966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -869,8 +898,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: -0.000936163, y: 0.997449, z: -0.070123665, w: -0.013316116}
-  m_LocalPosition: {x: 1.0987513, y: 9.709145, z: 14.386964}
+  m_LocalRotation: {x: -0.00093616353, y: 0.997449, z: -0.070123635, w: -0.013316128}
+  m_LocalPosition: {x: 1.0987515, y: 9.709145, z: 14.386966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2006,8 +2035,8 @@ GameObject:
   - component: {fileID: 1795569703}
   - component: {fileID: 1795569706}
   - component: {fileID: 1795569705}
-  - component: {fileID: 1795569704}
   - component: {fileID: 1795569707}
+  - component: {fileID: 1795569704}
   m_Layer: 7
   m_Name: canoe-base
   m_TagString: Enemy
@@ -2104,10 +2133,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795569702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b918186c959c1f4dbf9329d67acdc8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6405f061b5efc4e21bfe42b39e8ff3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbodyReference: {fileID: 277850341}
+  gameObjectRedirect: {fileID: 277850338}
 --- !u!1 &1818435806
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3116,7 @@ GameObject:
   - component: {fileID: 5990030119164280403}
   - component: {fileID: 2800666308332963610}
   - component: {fileID: 7260421936796359621}
+  - component: {fileID: 7260421936796359622}
   m_Layer: 3
   m_Name: canoe-base
   m_TagString: Untagged
@@ -3108,6 +3138,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -318616179682599191, guid: 75345ff759656114caf0b4d498da23c8, type: 3}
+--- !u!114 &7260421936796359622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260421936796359620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6405f061b5efc4e21bfe42b39e8ff3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRedirect: {fileID: 919132149413940814}
 --- !u!23 &7286210406837308733
 MeshRenderer:
   m_ObjectHideFlags: 0

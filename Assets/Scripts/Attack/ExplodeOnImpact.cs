@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ExplodeOnImpact : MonoBehaviour
 {
-    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private float explosionDamage;
+    [SerializeField] private GameObject explosionParticlePrefab;
     [SerializeField] private float explosionForce;
     [SerializeField] private float explosionRadius;
 
@@ -25,9 +26,9 @@ public class ExplodeOnImpact : MonoBehaviour
         {
             audioSource.clip = sinkSound;
         }
-        if (explosionPrefab == null)
+        if (explosionParticlePrefab == null)
         {
-            Debug.LogError("ExplodeOnImpact: Explosion Prefab is null");
+            Debug.LogError("ExplodeOnImpact: Explosion Particle Prefab is null");
         }    
     }
     private void OnCollisionEnter(Collision other)
@@ -52,27 +53,36 @@ public class ExplodeOnImpact : MonoBehaviour
     }
     void Explode()
     {
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+        GameObject explosion = Instantiate(explosionParticlePrefab, transform.position, transform.rotation);
         explosion.GetComponent<ParticleSystem>().Play();
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach (Collider nearbyObject in colliders)
+        foreach (Collider nearbyCollider in colliders)
         {
-            RigidbodyRedirect rigidbodyRedirect = nearbyObject.gameObject.GetComponent<RigidbodyRedirect>();
-            if (rigidbodyRedirect != null)
+            GameObject hitGameObject = nearbyCollider.gameObject;
+            if (hitGameObject == gameObject)
             {
-                Debug.Log($"ExplodeOnImpact: Adding force to RigidbodyRedirect of {nearbyObject.gameObject}");
-                rigidbodyRedirect.rigidbodyReference.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                continue;
             }
-            else
+            // Script added to colliders that are children of gameObjects
+            ObjectRedirect objectRedirect = hitGameObject.GetComponent<ObjectRedirect>();
+            if (objectRedirect != null)
             {
-                Rigidbody rb = nearbyObject.gameObject.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    Debug.Log($"ExplodeOnImpact: Adding force to Rigidbody of {nearbyObject.gameObject}");
-                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                }
+                hitGameObject = objectRedirect.gameObjectRedirect;
             }
-
+            // Damage - Uses interfaces; is that neccessary?
+            HealthManager healthManager = hitGameObject.GetComponent<HealthManager>();
+            if (healthManager != null)
+            {
+                Debug.Log($"ExplodeOnImpact: Damaging HealthManager of {hitGameObject}");
+                healthManager.GetComponent<IDamageable>().Damage(explosionDamage);
+            }
+            // Physics
+            Rigidbody rb = hitGameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Debug.Log($"ExplodeOnImpact: Adding force to Rigidbody of {hitGameObject}");
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            }
 
         }
         audioSource.clip = explosionSound;
