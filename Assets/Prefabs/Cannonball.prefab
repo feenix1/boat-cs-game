@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: -335210511738686919}
   - component: {fileID: -945943150171757376}
   - component: {fileID: 6811761232672629153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannonball
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4927,10 +4927,11 @@ MonoBehaviour:
   explosionParticlePrefab: {fileID: 6435045441205199768, guid: cde4a629ef9e9c440920828d0283b716,
     type: 3}
   explosionForce: 1000
-  explosionRadius: 200
+  explosionRadius: 8
   audioSource: {fileID: 6811761232672629153}
   sinkSound: {fileID: 8300000, guid: a1dfc6f95fdf9644e989d35dc0f67594, type: 3}
   explosionSound: {fileID: 8300000, guid: a1dfc6f95fdf9644e989d35dc0f67594, type: 3}
+  debug: 1
 --- !u!82 &6811761232672629153
 AudioSource:
   m_ObjectHideFlags: 0

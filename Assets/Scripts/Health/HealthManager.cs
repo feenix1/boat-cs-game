@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour, IDamageable
         if (health - damagePoints <= 0)
         {
             onHealthZero.Invoke();
+            this.enabled = false;
         }
         else
         {

@@ -14,6 +14,8 @@ public class ExplodeOnImpact : MonoBehaviour
     [SerializeField] private AudioClip sinkSound;
     [SerializeField] private AudioClip explosionSound;
 
+    [SerializeField] private bool debug;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,5 +94,11 @@ public class ExplodeOnImpact : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
         Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.duration);
         Destroy(gameObject, audioSource.clip.length);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (!debug) { return; }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }
