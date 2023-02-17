@@ -6,7 +6,7 @@ public class SpawnRandomInRadius : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Transform _groundTransform;
-    [SerializeField] private List<SpawnConfig> _enemyPrefabs = new();
+    [SerializeField] private List<SpawnConfig> _spawnConfigs = new();
     [System.Serializable]
     public class SpawnConfig
     {
@@ -21,13 +21,14 @@ public class SpawnRandomInRadius : MonoBehaviour
         public int _amountPerGroup;
         public float _groupMinSpawnRadius;
         public float _groupMaxSpawnRadius;
-        public float _radiusEnemyExclude;
+        public float _enemySpawnExclusionRadius;
         public int _maxGroups;
         public bool _debug;
 
+        [HideInInspector] public float _secondsSinceLastSpawnAttempt;
+        public List<List<GameObject>> _activeGroups = new();
         [HideInInspector] public Vector3 _groupSpawnPosition;
-        public float _secondsSinceLastSpawnAttempt;
-        [HideInInspector] public Vector3[] _instanceSpawnPosition;
+        [HideInInspector] public List<Vector3> _enemySpawnPositions = new();
     }
 
     void Start()
@@ -43,17 +44,77 @@ public class SpawnRandomInRadius : MonoBehaviour
     }
     void Update()
     {
-        for (int i = 0; i < _enemyPrefabs.Count; i++)
+        foreach (SpawnConfig spawnConfig in _spawnConfigs)
         {
-            SpawnConfig spawnConfig = _enemyPrefabs[i];
             spawnConfig._secondsSinceLastSpawnAttempt += Time.deltaTime;
-            if (spawnConfig._secondsSinceLastSpawnAttempt >= spawnConfig._secondsBetweenSpawnAttempts)
+            if (spawnConfig._secondsSinceLastSpawnAttempt < spawnConfig._secondsBetweenSpawnAttempts) 
             {
-                spawnConfig._secondsSinceLastSpawnAttempt = 0;
-                spawnConfig._groupSpawnPosition = RandomPointBetweenRadius(spawnConfig._minRadiusFromPlayer, spawnConfig._maxRadiusFromPlayer) + _playerTransform.position;
-                //At group spawn position, find random points in the radius
+                return;
+            }
+            spawnConfig._secondsSinceLastSpawnAttempt = 0;
+            if (spawnConfig._activeGroups.Count == spawnConfig._maxGroups)
+            {
+                return;
+            }
+            spawnConfig._groupSpawnPosition = RandomPointBetweenRadius(spawnConfig._minRadiusFromPlayer, spawnConfig._maxRadiusFromPlayer) + _playerTransform.position;
+            spawnConfig._enemySpawnPositions.Clear();
+            for (int j = 0; j < spawnConfig._amountPerGroup; j++)
+            {
+                Vector3 spawnPoint;
+                // Doesn't add to the spawnPointsList after 3 tries bc values may make it impossible to get all points in 
+                for (int attempts = 0; attempts < 3; attempts++)
+                {
+                    spawnPoint = RandomPointBetweenRadius(spawnConfig._groupMinSpawnRadius, spawnConfig._groupMaxSpawnRadius) + spawnConfig._groupSpawnPosition;
+                    if (PointWithinOtherPointsRadius(spawnPoint, spawnConfig._enemySpawnPositions, spawnConfig._enemySpawnExclusionRadius))
+                    {
+                        continue;        
+                    }
+                    else
+                    {
+                        spawnConfig._enemySpawnPositions.Add(spawnPoint);
+                        break;
+                    }
+                }
+            }
+            List<GameObject> spawnGroup = new();
+            foreach (Vector3 position in spawnConfig._enemySpawnPositions)
+            {
+                GameObject enemy = Instantiate(spawnConfig._enemyPrefab, position + spawnConfig._spawnOffset, Quaternion.identity);
+                spawnGroup.Add(enemy);
+            }
+            spawnConfig._activeGroups.Add(spawnGroup);
+        }
+    }
+    public void RemoveFromGroup(GameObject enemyInstance)
+    {
+        foreach (SpawnConfig spawnConfig in _spawnConfigs)
+        {
+            foreach (List<GameObject> group in spawnConfig._activeGroups)
+            {
+                foreach (GameObject enemy in group)
+                {
+                    if (enemyInstance == enemy)
+                    {
+                        group.Remove(enemy);
+                        if (group.Count == 0)
+                        {
+                            spawnConfig._activeGroups.Remove(group);
+                        }
+                    }
+                }
             }
         }
+    }
+    bool PointWithinOtherPointsRadius(Vector3 point, List<Vector3> otherPoints, float radius)
+    {
+        foreach (Vector3 otherPoint in otherPoints)
+        {
+            if (PointIsInsideRadius(point, otherPoint, radius))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     Vector3 RandomPointBetweenRadius(float minRadius, float maxRadius)
     {
@@ -61,10 +122,21 @@ public class SpawnRandomInRadius : MonoBehaviour
         float randomDistance = Random.Range(minRadius, maxRadius);
         return randomDirectionXZ * randomDistance;
     }
-
+    bool PointIsInsideRadius(Vector3 point, Vector3 radiusOrigin, float radius)
+    {
+        Vector3 pointFromRadiusOrigin = point - radiusOrigin;
+        if (pointFromRadiusOrigin.magnitude <= radius)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private void OnDrawGizmos()
     {
-        foreach (SpawnConfig spawnConfig in _enemyPrefabs)
+        foreach (SpawnConfig spawnConfig in _spawnConfigs)
         {
             if (spawnConfig._debug)
             {
@@ -76,8 +148,18 @@ public class SpawnRandomInRadius : MonoBehaviour
                 // Groups
                 Gizmos.color = Color.blue;
                 Gizmos.DrawSphere(spawnConfig._groupSpawnPosition, 5f);
+                Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(spawnConfig._groupSpawnPosition, spawnConfig._groupMinSpawnRadius);
+                Gizmos.color = Color.green;
                 Gizmos.DrawWireSphere(spawnConfig._groupSpawnPosition, spawnConfig._groupMaxSpawnRadius);
+                // Individual Spawns
+                foreach (Vector3 spawnPosition in spawnConfig._enemySpawnPositions)
+                {
+                    Gizmos.color = Color.cyan;
+                    Gizmos.DrawSphere(spawnPosition, 5f);
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawWireSphere(spawnPosition, spawnConfig._enemySpawnExclusionRadius);
+                }
             }
         }
     }

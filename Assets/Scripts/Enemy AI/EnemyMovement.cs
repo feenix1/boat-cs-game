@@ -15,7 +15,17 @@ public class EnemyMovement : MonoBehaviour
     private EnemyDetection _enemyDetection;
     private Rigidbody _rigidbody;
     private bool _isMoving;
+    // Just in case
     void OnValidate()
+    {
+        _enemyDetection = gameObject.GetComponent<EnemyDetection>();
+        if (_enemyDetection == null)
+        {
+            Debug.LogError($"EnemyMovement: EnemyDetection is null!");
+        }
+        _enemyDetection._onDetection.AddListener(MoveToTarget);
+    }
+    void Start()
     {
         if (_rigidbody == null)
         {

@@ -31,6 +31,10 @@ public class RigidbodyBuoyancy : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        if (_waterTransform == null)
+        {
+            _waterTransform = GameObject.Find("Water").GetComponent<Transform>();
+        }
         _waveHeightCalculator = _waterTransform.gameObject.GetComponent<WaveHeightCalculator>();
         if (_rb == null)
         {
