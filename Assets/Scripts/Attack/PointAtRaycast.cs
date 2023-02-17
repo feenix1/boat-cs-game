@@ -7,6 +7,7 @@ public class PointAtRaycast : MonoBehaviour
     [SerializeField] private Transform _castOrigin;
     [SerializeField] private Vector3 _castOriginOffset;
     [SerializeField] private Transform _objectToRotate;
+    [SerializeField] private Vector3 _rotationOffset;
     [Header("Raycast")]
     [SerializeField] private float _raycastDistance;
     [SerializeField] private LayerMask _layerMask;
@@ -28,30 +29,23 @@ public class PointAtRaycast : MonoBehaviour
     }
     private void Update()
     {
+        // Cast ray;
+        Vector3 targetPosition;
         RaycastHit hit;
-        Physics.Raycast(_castOrigin.position + _castOriginOffset, _castOrigin.forward, out hit, _raycastDistance, _layerMask);
-        if (hit.point != null)
+        if (Physics.Raycast(_castOrigin.position + _castOriginOffset, _castOrigin.forward, out hit, _raycastDistance, _layerMask))
         {
-            _raycastHitPoint = hit.point;
+            targetPosition = hit.point;
         }
-        if (_raycastHitPoint != Vector3.zero)
+        else
         {
-            StartCoroutine(RotateToPointAtPosition(_objectToRotate));
+            targetPosition = (_castOrigin.position + _castOriginOffset) + (_castOrigin.forward * _raycastDistance);
+            Debug.DrawLine(targetPosition + Vector3.one, targetPosition - Vector3.one); 
         }
-    }
-    private IEnumerator RotateToPointAtPosition(Transform objectTransfrom)
-    {
-        _isRotating = true;
-        // TODO: Fix this so that the targetRotation is in the local space of the _objectToRotate 
-        Quaternion targetRotation = Quaternion.LookRotation(_raycastHitPoint - _objectToRotate.position);
-        targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, _objectToRotate.rotation.eulerAngles.y, _objectToRotate.rotation.eulerAngles.z);
-        while (!TransformRotationWithinRange(0.1f, objectTransfrom.rotation, targetRotation))
-        {
-            objectTransfrom.rotation = targetRotation;
-            Debug.Log(objectTransfrom.rotation.eulerAngles + "|" + targetRotation.eulerAngles);
-            yield return null;    
-        }
-        _isRotating = false;
+        Vector3 directionToTarget = (targetPosition - _objectToRotate.position).normalized;
+        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+        // this should limit the rotation to the X axis, but still add the rotation offset
+        rotationToTarget = Quaternion.Euler(rotationToTarget.eulerAngles.x + _rotationOffset.x, rotationToTarget.eulerAngles.y + _rotationOffset.y, rotationToTarget.eulerAngles.z + _rotationOffset.z);
+        _objectToRotate.rotation = rotationToTarget;
     }
     private bool TransformRotationWithinRange(float angleDifference, Quaternion rotation1, Quaternion rotation2)
     {
@@ -76,17 +70,12 @@ public class PointAtRaycast : MonoBehaviour
     {
         if (_debug)
         {
+            // Draw ray
             Gizmos.color = Color.green;
+            Gizmos.DrawLine(_castOrigin.position + _castOriginOffset, (_castOrigin.forward * _raycastDistance) + (_castOrigin.position + _castOriginOffset));
             RaycastHit hit;
-            Gizmos.DrawLine(_castOrigin.position + _castOriginOffset, (_castOrigin.position + _castOriginOffset) + (_castOrigin.forward * _raycastDistance));
-            if (_isRotating)
-            {
-                Gizmos.color = Color.blue;
-            }
-            Gizmos.DrawLine(_objectToRotate.position, _objectToRotate.position + (_objectToRotate.forward * _raycastDistance));
             if (Physics.Raycast(_castOrigin.position + _castOriginOffset, _castOrigin.forward, out hit, _raycastDistance, _layerMask))
             {
-                Gizmos.color = Color.green;
                 Gizmos.DrawSphere(hit.point, 0.5f);
             }
         }
