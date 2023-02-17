@@ -2,37 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpawnConfigurations))]
 public class SpawnRandomInRadius : MonoBehaviour
 {
+    [SerializeField] private SpawnConfigurations _spawnConfigScript;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Transform _groundTransform;
-    [SerializeField] private List<SpawnConfig> _spawnConfigs = new();
-    [System.Serializable]
-    public class SpawnConfig
+    private void OnValidate()
     {
-        public GameObject _enemyPrefab;
-        public float _minRadiusFromPlayer;
-        public float _maxRadiusFromPlayer;
-        [Header("Position")]
-        public Vector3 _spawnOffset;
-        [Header("Time")]
-        public float _secondsBetweenSpawnAttempts;
-        [Header("Spawn Groups")]
-        public int _amountPerGroup;
-        public float _groupMinSpawnRadius;
-        public float _groupMaxSpawnRadius;
-        public float _enemySpawnExclusionRadius;
-        public int _maxGroups;
-        public bool _debug;
-
-        [HideInInspector] public float _secondsSinceLastSpawnAttempt;
-        public List<List<GameObject>> _activeGroups = new();
-        [HideInInspector] public Vector3 _groupSpawnPosition;
-        [HideInInspector] public List<Vector3> _enemySpawnPositions = new();
+        _spawnConfigScript = gameObject.GetComponent<SpawnConfigurations>();
     }
-
     void Start()
     {
+        _spawnConfigScript = gameObject.GetComponent<SpawnConfigurations>();
         if (_playerTransform == null)
         {
             Debug.LogError("SpawnRandomInRadius: PlayerTransform is null!");
@@ -44,7 +26,7 @@ public class SpawnRandomInRadius : MonoBehaviour
     }
     void Update()
     {
-        foreach (SpawnConfig spawnConfig in _spawnConfigs)
+        foreach (SpawnConfigurations.SpawnConfig spawnConfig in _spawnConfigScript._spawnConfigs)
         {
             spawnConfig._secondsSinceLastSpawnAttempt += Time.deltaTime;
             if (spawnConfig._secondsSinceLastSpawnAttempt < spawnConfig._secondsBetweenSpawnAttempts) 
@@ -59,7 +41,7 @@ public class SpawnRandomInRadius : MonoBehaviour
             SpawnGroup(spawnConfig);
         }
     }
-    void SpawnGroup(SpawnConfig spawnConfig)
+    void SpawnGroup(SpawnConfigurations.SpawnConfig spawnConfig)
     {
         spawnConfig._groupSpawnPosition = RandomPointBetweenRadius(spawnConfig._minRadiusFromPlayer, spawnConfig._maxRadiusFromPlayer) + _playerTransform.position;
         spawnConfig._enemySpawnPositions.Clear();
@@ -81,14 +63,15 @@ public class SpawnRandomInRadius : MonoBehaviour
                 }
             }
         }
-        // TODO: Find out how to have spawned enemies callback to remove themselves from their group in this script
         List<GameObject> spawnGroup = new();
         foreach (Vector3 position in spawnConfig._enemySpawnPositions)
         {
-            GameObject enemy = Instantiate(spawnConfig._enemyPrefab, position + spawnConfig._spawnOffset, Quaternion.identity);
+            GameObject enemy = Instantiate(spawnConfig._enemyPrefab, position + spawnConfig._spawnOffset, Quaternion.identity, transform);
+            enemy.transform.name = $"{spawnConfig._enemyPrefab.name} - Group: {spawnConfig._activeGroups.Count} Index: {spawnGroup.Count}";
             spawnGroup.Add(enemy);
         }
         spawnConfig._activeGroups.Add(spawnGroup);
+        
     }
     bool PointWithinOtherPointsRadius(Vector3 point, List<Vector3> otherPoints, float radius)
     {
@@ -121,7 +104,7 @@ public class SpawnRandomInRadius : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        foreach (SpawnConfig spawnConfig in _spawnConfigs)
+        foreach (SpawnConfigurations.SpawnConfig spawnConfig in _spawnConfigScript._spawnConfigs)
         {
             Debug.Log($"SpawnManager: Groups Active: {spawnConfig._activeGroups.Count}");
             if (spawnConfig._debug)

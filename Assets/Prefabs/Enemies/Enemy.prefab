@@ -919,7 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9b9cf368c3ced44844cc70f6bc7fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveHeightCalculator: {fileID: 0}
+  _waveHeightCalculator: {fileID: 5086942082259265336, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
+    type: 3}
   _useWaveHeightCalculator: 1
   _buoyancyPoints:
   - {fileID: 2307807969184817997}
@@ -928,7 +929,8 @@ MonoBehaviour:
   - {fileID: 2307807968754870495}
   - {fileID: 2307807967509417120}
   - {fileID: 2307807969437789909}
-  _waterTransform: {fileID: 0}
+  _waterTransform: {fileID: 5608004578575187328, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
+    type: 3}
   _buoyancyCurve:
     serializedVersion: 2
     m_Curve:
@@ -1117,19 +1119,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 530810193853685246, guid: c3ad09277351ab448beb27ba170b9aa5,
-          type: 3}
-        m_TargetAssemblyTypeName: SpawnRandomInRadius, Assembly-CSharp
-        m_MethodName: RemoveFromGroup
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2307807969083149775}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

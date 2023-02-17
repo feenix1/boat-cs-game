@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530810193853685241}
+  - component: {fileID: 5259910771253683946}
   - component: {fileID: 530810193853685246}
   m_Layer: 0
   m_Name: SpawnManager
@@ -32,6 +33,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5259910771253683946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530810193853685247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c5180e3d5849f4dbffa2a9e64a4ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnConfigs:
+  - _enemyPrefab: {fileID: 2307807969083149775, guid: 48b9fc759714c794398c53e63adc92f7,
+      type: 3}
+    _minRadiusFromPlayer: 400
+    _maxRadiusFromPlayer: 600
+    _spawnOffset: {x: 0, y: 2, z: 0}
+    _secondsBetweenSpawnAttempts: 5
+    _amountPerGroup: 3
+    _groupMinSpawnRadius: 30
+    _groupMaxSpawnRadius: 80
+    _enemySpawnExclusionRadius: 20
+    _maxGroups: 3
+    _debug: 1
+    _secondsSinceLastSpawnAttempt: 0
+    _groupSpawnPosition: {x: 0, y: 0, z: 0}
+    _enemySpawnPositions: []
 --- !u!114 &530810193853685246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,23 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81ffb1dc8e8dd54ca9ed36d1fc84902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnConfigScript: {fileID: 5259910771253683946}
   _playerTransform: {fileID: 2394902634627272267, guid: b0d9ebd3b1e42dc4b965cfc8e4f6361e,
     type: 3}
   _groundTransform: {fileID: 5608004578575187328, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
     type: 3}
-  _spawnConfigs:
-  - _enemyPrefab: {fileID: 2307807969083149775, guid: 48b9fc759714c794398c53e63adc92f7,
-      type: 3}
-    _minRadiusFromPlayer: 400
-    _maxRadiusFromPlayer: 600
-    _spawnOffset: {x: 0, y: 2, z: 0}
-    _secondsBetweenSpawnAttempts: 5
-    _amountPerGroup: 3
-    _groupMinSpawnRadius: 10
-    _groupMaxSpawnRadius: 60
-    _enemySpawnExclusionRadius: 15
-    _maxGroups: 3
-    _debug: 0
-    _secondsSinceLastSpawnAttempt: 0
-    _groupSpawnPosition: {x: 0, y: 0, z: 0}
-    _enemySpawnPositions: []
