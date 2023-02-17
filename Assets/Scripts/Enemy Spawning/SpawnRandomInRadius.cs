@@ -56,54 +56,39 @@ public class SpawnRandomInRadius : MonoBehaviour
             {
                 return;
             }
-            spawnConfig._groupSpawnPosition = RandomPointBetweenRadius(spawnConfig._minRadiusFromPlayer, spawnConfig._maxRadiusFromPlayer) + _playerTransform.position;
-            spawnConfig._enemySpawnPositions.Clear();
-            for (int j = 0; j < spawnConfig._amountPerGroup; j++)
-            {
-                Vector3 spawnPoint;
-                // Doesn't add to the spawnPointsList after 3 tries bc values may make it impossible to get all points in 
-                for (int attempts = 0; attempts < 3; attempts++)
-                {
-                    spawnPoint = RandomPointBetweenRadius(spawnConfig._groupMinSpawnRadius, spawnConfig._groupMaxSpawnRadius) + spawnConfig._groupSpawnPosition;
-                    if (PointWithinOtherPointsRadius(spawnPoint, spawnConfig._enemySpawnPositions, spawnConfig._enemySpawnExclusionRadius))
-                    {
-                        continue;        
-                    }
-                    else
-                    {
-                        spawnConfig._enemySpawnPositions.Add(spawnPoint);
-                        break;
-                    }
-                }
-            }
-            List<GameObject> spawnGroup = new();
-            foreach (Vector3 position in spawnConfig._enemySpawnPositions)
-            {
-                GameObject enemy = Instantiate(spawnConfig._enemyPrefab, position + spawnConfig._spawnOffset, Quaternion.identity);
-                spawnGroup.Add(enemy);
-            }
-            spawnConfig._activeGroups.Add(spawnGroup);
+            SpawnGroup(spawnConfig);
         }
     }
-    public void RemoveFromGroup(GameObject enemyInstance)
+    void SpawnGroup(SpawnConfig spawnConfig)
     {
-        foreach (SpawnConfig spawnConfig in _spawnConfigs)
+        spawnConfig._groupSpawnPosition = RandomPointBetweenRadius(spawnConfig._minRadiusFromPlayer, spawnConfig._maxRadiusFromPlayer) + _playerTransform.position;
+        spawnConfig._enemySpawnPositions.Clear();
+        for (int j = 0; j < spawnConfig._amountPerGroup; j++)
         {
-            foreach (List<GameObject> group in spawnConfig._activeGroups)
+            Vector3 spawnPoint;
+            // Doesn't add to the spawnPointsList after 3 tries bc values may make it impossible to get all points in 
+            for (int attempts = 0; attempts < 3; attempts++)
             {
-                foreach (GameObject enemy in group)
+                spawnPoint = RandomPointBetweenRadius(spawnConfig._groupMinSpawnRadius, spawnConfig._groupMaxSpawnRadius) + spawnConfig._groupSpawnPosition;
+                if (PointWithinOtherPointsRadius(spawnPoint, spawnConfig._enemySpawnPositions, spawnConfig._enemySpawnExclusionRadius))
                 {
-                    if (enemyInstance == enemy)
-                    {
-                        group.Remove(enemy);
-                        if (group.Count == 0)
-                        {
-                            spawnConfig._activeGroups.Remove(group);
-                        }
-                    }
+                    continue;        
+                }
+                else
+                {
+                    spawnConfig._enemySpawnPositions.Add(spawnPoint);
+                    break;
                 }
             }
         }
+        // TODO: Find out how to have spawned enemies callback to remove themselves from their group in this script
+        List<GameObject> spawnGroup = new();
+        foreach (Vector3 position in spawnConfig._enemySpawnPositions)
+        {
+            GameObject enemy = Instantiate(spawnConfig._enemyPrefab, position + spawnConfig._spawnOffset, Quaternion.identity);
+            spawnGroup.Add(enemy);
+        }
+        spawnConfig._activeGroups.Add(spawnGroup);
     }
     bool PointWithinOtherPointsRadius(Vector3 point, List<Vector3> otherPoints, float radius)
     {
@@ -138,6 +123,7 @@ public class SpawnRandomInRadius : MonoBehaviour
     {
         foreach (SpawnConfig spawnConfig in _spawnConfigs)
         {
+            Debug.Log($"SpawnManager: Groups Active: {spawnConfig._activeGroups.Count}");
             if (spawnConfig._debug)
             {
                 // Player Radius
