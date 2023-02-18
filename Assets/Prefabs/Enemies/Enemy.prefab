@@ -579,7 +579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2307807968409525812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.041, z: 23.49}
+  m_LocalPosition: {x: -0, y: 0.07, z: 32.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 2307807969083149765}
   - component: {fileID: 2307807969083149767}
   - component: {fileID: 2307807969083149766}
+  - component: {fileID: -7724214737652702127}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -985,8 +986,8 @@ MonoBehaviour:
     type: 3}
   projectilePrefab: {fileID: 8725448618956409892, guid: 3a8baaacecb2d89499c836a8e22b4939,
     type: 3}
-  fireForce: 40
-  shootDelay: 2
+  fireForce: 100
+  shootDelay: 12
   _debug: 1
 --- !u!82 &2307807969083149764
 AudioSource:
@@ -1167,11 +1168,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _playerDetectionRadius: 400
+      - m_Target: {fileID: 2307807969083149774}
+        m_TargetAssemblyTypeName: FireProjectile, Assembly-CSharp
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -6215714479438389160, guid: c3ad09277351ab448beb27ba170b9aa5,
+          type: 3}
+        m_TargetAssemblyTypeName: DestroyOnDeathListener, Assembly-CSharp
+        m_MethodName: StartDeath
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2307807969083149775}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _playerDetectionRadius: 600
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
-  _debug: 0
+  _debug: 1
 --- !u!114 &2307807969083149766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1215,27 @@ MonoBehaviour:
   _angularSpeed: 20
   _acceleration: 600
   _debug: 1
+--- !u!114 &-7724214737652702127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307807969083149775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d22901f725a6e4418967eb968db5983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _castOrigin: {fileID: 2307807969083149771}
+  _castOriginOffset: {x: 0, y: 1.52, z: 0}
+  _objectToRotate: {fileID: 2307807968186468947}
+  _rotationOffset: {x: 0, y: 0, z: 0}
+  _raycastDistance: 70
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 88
+  _debug: 0
 --- !u!1 &2307807969184818034
 GameObject:
   m_ObjectHideFlags: 0

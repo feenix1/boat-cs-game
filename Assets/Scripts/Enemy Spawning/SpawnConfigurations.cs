@@ -17,18 +17,13 @@ public class SpawnConfigurations : MonoBehaviour
         public Vector3 _spawnOffset;
         [Header("Time")]
         public float _secondsBetweenSpawnAttempts;
-        [Header("Spawn Groups")]
-        public int _amountPerGroup;
-        public float _groupMinSpawnRadius;
-        public float _groupMaxSpawnRadius;
-        public float _enemySpawnExclusionRadius;
-        public int _maxGroups;
+        [Header("Spawn")]
+        public int _maxSpawns;
         public bool _debug;
 
         [HideInInspector] public float _secondsSinceLastSpawnAttempt;
-        public List<List<GameObject>> _activeGroups = new();
-        [HideInInspector] public Vector3 _groupSpawnPosition;
         [HideInInspector] public List<Vector3> _enemySpawnPositions = new();
+        [HideInInspector] public List<GameObject> _activeEnemies = new();
     }
     
 }
