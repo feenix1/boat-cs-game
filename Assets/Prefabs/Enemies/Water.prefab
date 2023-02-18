@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6744297324402640623}
   - component: {fileID: 5086942082259265337}
   - component: {fileID: 5086942082259265336}
-  - component: {fileID: 5086942082259265335}
   m_Layer: 4
   m_Name: Water
   m_TagString: Water
@@ -126,19 +125,3 @@ MonoBehaviour:
   _wavesLargeScale: 0.27
   _wavesLargeStrength: 0
   _wavesLargeVelocity: {x: -25.5, y: -50}
---- !u!114 &5086942082259265335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5086942082259265338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05dd254e9ab841e42a6822a49305d4c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transformToFollow: {fileID: 0}
-  _followX: 1
-  _followY: 0
-  _followZ: 1

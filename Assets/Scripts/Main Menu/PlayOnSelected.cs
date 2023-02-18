@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
+
+public class PlayOnSelected : MonoBehaviour
+{
+    [SerializeField] private Image _elementToFadeIn;
+    [SerializeField] private float _fadeDuration;
+    // Start is called before the first frame update
+    private void Start()
+    {
+        _elementToFadeIn.color = Color.clear;
+    }
+    public void OnEnter()
+    {
+        StartCoroutine(OnEnterCoroutine());
+    }
+    private IEnumerator OnEnterCoroutine()
+    {
+        _elementToFadeIn.DOFade(1, _fadeDuration);
+        yield return new WaitForSeconds(_fadeDuration);
+        SceneManager.LoadSceneAsync("Game");
+        yield return new WaitForSeconds(1f);
+    }
+}

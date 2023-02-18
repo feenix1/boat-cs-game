@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class MenuSelection : MonoBehaviour
@@ -12,6 +13,7 @@ public class MenuSelection : MonoBehaviour
     public class SelectableElement
     {
         public GameObject _element;
+        public UnityEvent _OnEnter;
         public float _originalSize;
         public float _selectedSize;
     }
@@ -19,6 +21,7 @@ public class MenuSelection : MonoBehaviour
 
     // Debounce
     private int _lastAxisInput;
+    private bool _selectionMade;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,6 +35,8 @@ public class MenuSelection : MonoBehaviour
         {
             selectableElement._element.transform.localScale = new Vector3(selectableElement._originalSize, selectableElement._originalSize, selectableElement._originalSize);
         }
+        _lastAxisInput = 0;
+        _selectionMade = false;
     }
     // Update is called once per frame
     private void Update()
@@ -46,7 +51,15 @@ public class MenuSelection : MonoBehaviour
             }
             else
             {
-                // TODO: Add selection logic
+                if (Input.GetAxisRaw("Submit") == 0)
+                {
+                    continue;
+                }
+                if (Input.GetAxisRaw("Submit") == 1 && !_selectionMade)
+                {
+                    _selectionMade = true;
+                    _uiElements[i]._OnEnter?.Invoke();
+                }
             }
         }
     }
