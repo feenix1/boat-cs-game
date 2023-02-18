@@ -28,7 +28,7 @@ Material:
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2985
+  m_CustomRenderQueue: 2435
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:

@@ -2421,6 +2421,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 606752685}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1858296342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5086942082259265336, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 606752685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a8f0e004d7afb42bea1b9051252aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1892040138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,7 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9b9cf368c3ced44844cc70f6bc7fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveHeightCalculator: {fileID: 0}
+  _waveHeightCalculator: {fileID: 1858296342}
   _useWaveHeightCalculator: 1
   _buoyancyPoints:
   - {fileID: 364618384}
@@ -2707,7 +2719,7 @@ MonoBehaviour:
   - {fileID: 1683354837}
   - {fileID: 1672801685}
   - {fileID: 129865564}
-  _waterTransform: {fileID: 0}
+  _waterTransform: {fileID: 1858296341}
   _buoyancyCurve:
     serializedVersion: 2
     m_Curve:
@@ -2752,18 +2764,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0356c18f9430fc479d6b00ee6ba16b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usePlayerInput: 1
-  firePoint: {fileID: 899034685}
-  recoilVector: {x: 0, y: -40, z: 0}
-  rb: {fileID: 919132149413940815}
-  audioSource: {fileID: 8365299822465720700}
-  shootSound: {fileID: 8300000, guid: bc486677b0b51d340b43226ca461230f, type: 3}
-  shootParticlePrefab: {fileID: 6435045441205199768, guid: 78fbe142bd1c13c4b95568af4fa58f61,
+  _usePlayerInput: 0
+  _firePoint: {fileID: 899034685}
+  _recoilVector: {x: 0, y: -50, z: 0}
+  _rb: {fileID: 919132149413940815}
+  _audioSource: {fileID: 8365299822465720700}
+  _shootSound: {fileID: 8300000, guid: bc486677b0b51d340b43226ca461230f, type: 3}
+  _shootParticlePrefab: {fileID: 6435045441205199768, guid: 78fbe142bd1c13c4b95568af4fa58f61,
     type: 3}
-  projectilePrefab: {fileID: 8725448618956409892, guid: 3a8baaacecb2d89499c836a8e22b4939,
+  _projectilePrefab: {fileID: 8725448618956409892, guid: 3a8baaacecb2d89499c836a8e22b4939,
     type: 3}
-  fireForce: 70
-  shootDelay: 2
+  _fireForce: 120
+  _shootDelay: 3
   _debug: 0
 --- !u!82 &919132149413940822
 AudioSource:

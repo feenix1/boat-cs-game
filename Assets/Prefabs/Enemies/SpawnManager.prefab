@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5259910771253683946}
   - component: {fileID: 530810193853685246}
   - component: {fileID: 440874303883213282}
+  - component: {fileID: 3080096765663363326}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -53,8 +54,8 @@ MonoBehaviour:
     _maxRadiusFromPlayer: 600
     _spawnOffset: {x: 0, y: 2, z: 0}
     _secondsBetweenSpawnAttempts: 5
-    _maxSpawns: 0
-    _debug: 1
+    _maxSpawns: 10
+    _debug: 0
     _secondsSinceLastSpawnAttempt: 0
     _enemySpawnPositions: []
     _activeEnemies: []
@@ -70,10 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81ffb1dc8e8dd54ca9ed36d1fc84902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 2394902634627272267, guid: b0d9ebd3b1e42dc4b965cfc8e4f6361e,
-    type: 3}
-  _groundTransform: {fileID: 5608004578575187328, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
-    type: 3}
+  _playerTransform: {fileID: 0}
+  _groundTransform: {fileID: 0}
 --- !u!114 &440874303883213282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +85,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a415c9837857ffc488366134b9f9b6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 2394902634627272267, guid: b0d9ebd3b1e42dc4b965cfc8e4f6361e,
-    type: 3}
-  _safeZoneRadius: 800
+  _playerTransform: {fileID: 0}
+  _safeZoneRadius: 1000
+  _debug: 0
+--- !u!114 &3080096765663363326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530810193853685247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a3abdf674987d4bb0086d4d1d09eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

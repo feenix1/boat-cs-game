@@ -5,30 +5,30 @@ using UnityEngine;
 
 public class ExplodeOnImpact : MonoBehaviour
 {
-    [SerializeField] private float explosionDamage;
-    [SerializeField] private GameObject explosionParticlePrefab;
-    [SerializeField] private float explosionForce;
-    [SerializeField] private float explosionRadius;
+    [SerializeField] private float _explosionDamageMin, _explosionDamageMax;
+    [SerializeField] private GameObject _explosionParticlePrefab;
+    [SerializeField] private float _explosionForce;
+    [SerializeField] private float _explosionRadius;
 
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip sinkSound;
-    [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _sinkSound;
+    [SerializeField] private AudioClip _explosionSound;
 
-    [SerializeField] private bool debug;
+    [SerializeField] private bool _debug;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (audioSource == null) {audioSource = gameObject.GetComponent<AudioSource>();}
-        if (audioSource == null)
+        if (_audioSource == null) {_audioSource = gameObject.GetComponent<AudioSource>();}
+        if (_audioSource == null)
         {
             Debug.LogError("ExplodeOnImpact: AudioSource is null");
         }
         else
         {
-            audioSource.clip = sinkSound;
+            _audioSource.clip = _sinkSound;
         }
-        if (explosionParticlePrefab == null)
+        if (_explosionParticlePrefab == null)
         {
             Debug.LogError("ExplodeOnImpact: Explosion Particle Prefab is null");
         }    
@@ -39,7 +39,7 @@ public class ExplodeOnImpact : MonoBehaviour
         {
             Sink();
         }
-        else if (!other.gameObject.CompareTag("Player"))
+        else
         {
             Explode();
         }
@@ -49,15 +49,15 @@ public class ExplodeOnImpact : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
-        audioSource.clip = sinkSound;
-        audioSource.Play();
+        _audioSource.clip = _sinkSound;
+        _audioSource.Play();
         Destroy(gameObject, gameObject.GetComponent<ParticleSystem>().main.startLifetime.constant);
     }
     void Explode()
     {
-        GameObject explosion = Instantiate(explosionParticlePrefab, transform.position, transform.rotation);
+        GameObject explosion = Instantiate(_explosionParticlePrefab, transform.position, transform.rotation);
         explosion.GetComponent<ParticleSystem>().Play();
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRadius);
         foreach (Collider nearbyCollider in colliders)
         {
             GameObject hitGameObject = nearbyCollider.gameObject;
@@ -75,30 +75,28 @@ public class ExplodeOnImpact : MonoBehaviour
             HealthManager healthManager = hitGameObject.GetComponent<HealthManager>();
             if (healthManager != null)
             {
-                Debug.Log($"ExplodeOnImpact: Damaging HealthManager of {hitGameObject}");
-                healthManager.GetComponent<IDamageable>().Damage(explosionDamage);
+                healthManager.GetComponent<IDamageable>().Damage(UnityEngine.Random.Range(_explosionDamageMin, _explosionDamageMax));
             }
             // Physics
             Rigidbody rb = hitGameObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Debug.Log($"ExplodeOnImpact: Adding force to Rigidbody of {hitGameObject}");
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                rb.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
             }
 
         }
-        audioSource.clip = explosionSound;
-        audioSource.Play();
+        _audioSource.clip = _explosionSound;
+        _audioSource.Play();
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
         Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.duration);
-        Destroy(gameObject, audioSource.clip.length);
+        Destroy(gameObject, _audioSource.clip.length);
     }
     private void OnDrawGizmosSelected()
     {
-        if (!debug) { return; }
+        if (!_debug) { return; }
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, _explosionRadius);
     }
 }

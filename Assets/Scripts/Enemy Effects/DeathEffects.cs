@@ -14,7 +14,7 @@ public class DeathEffects : MonoBehaviour
     void Start()
     {
         healthManager = gameObject.GetComponent<HealthManager>();
-        healthManager.onHealthZero.AddListener(OnHealthZero);
+        healthManager._onHealthZero.AddListener(OnHealthZero);
         if (_particlePrefab == null)
         {
             Debug.LogError("DeathEffects: Particle prefab not set");

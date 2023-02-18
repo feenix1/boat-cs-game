@@ -5,67 +5,67 @@ using UnityEngine;
 
 public class FireProjectile : MonoBehaviour
 {
-    [SerializeField] private bool usePlayerInput;
+    [SerializeField] private bool _usePlayerInput;
 
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private Vector3 recoilVector;
-    [SerializeField] private Rigidbody rb;
-    private Rigidbody projectileRb;
+    [SerializeField] private Transform _firePoint;
+    [SerializeField] private Vector3 _recoilVector;
+    [SerializeField] private Rigidbody _rb;
+    private Rigidbody _projectileRb;
     
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _shootSound;
 
-    [SerializeField] private GameObject shootParticlePrefab;
-    private ParticleSystem fireParticleSystem;
+    [SerializeField] private GameObject _shootParticlePrefab;
+    private ParticleSystem _fireParticleSystem;
 
-    [SerializeField] private GameObject projectilePrefab;
-    private List<GameObject> projectiles = new();
-    [SerializeField] private float fireForce;
+    [SerializeField] private GameObject _projectilePrefab;
+    private List<GameObject> _projectiles = new();
+    [SerializeField] private float _fireForce;
 
-    private float shootInput;
-    [SerializeField] private float shootDelay;
-    private float timeSinceLastShot;
+    private float _shootInput;
+    [SerializeField] private float _shootDelay;
+    private float _timeSinceLastShot;
 
     [SerializeField] private bool _debug;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (rb == null) { rb = gameObject.GetComponent<Rigidbody>();}
-        if (rb == null)
+        if (_rb == null) { _rb = gameObject.GetComponent<Rigidbody>();}
+        if (_rb == null)
         {
             Debug.LogError("FireProjectile: Rigidbody is null");
         }
-        projectileRb = projectilePrefab.GetComponent<Rigidbody>();
-        if (projectileRb == null)
+        _projectileRb = _projectilePrefab.GetComponent<Rigidbody>();
+        if (_projectileRb == null)
         {
             Debug.LogError("FireProjectile: Projectile Rigidbody is null");
         }
-        if (audioSource == null) {audioSource = transform.GetChild(0).transform.GetChild(0).GetComponent<AudioSource>();}
-        if (audioSource == null)
+        if (_audioSource == null) {_audioSource = transform.GetChild(0).transform.GetChild(0).GetComponent<AudioSource>();}
+        if (_audioSource == null)
         {
             Debug.LogError("FireProjectile: AudioSource is null");
         }
         else
         {
-            audioSource.clip = shootSound;
+            _audioSource.clip = _shootSound;
         }
-        if (firePoint == null)
+        if (_firePoint == null)
         {
             Debug.LogError("FireProjectile: FirePoint is null");
         }
-        if (projectilePrefab == null)
+        if (_projectilePrefab == null)
         {
             Debug.LogError("FireProjectile: Projectile is null");
         }
-        if (shootParticlePrefab == null)
+        if (_shootParticlePrefab == null)
         {
             Debug.LogError("FireProjectile: Shoot Particle is null");
         }
         else
         {
-            fireParticleSystem = shootParticlePrefab.GetComponent<ParticleSystem>();
-            if (fireParticleSystem == null)
+            _fireParticleSystem = _shootParticlePrefab.GetComponent<ParticleSystem>();
+            if (_fireParticleSystem == null)
             {
                 Debug.LogError("FireProjectile: Shoot Particle System is null");
             }
@@ -73,11 +73,11 @@ public class FireProjectile : MonoBehaviour
     }
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
-        if (usePlayerInput)
+        _timeSinceLastShot += Time.deltaTime;
+        if (_usePlayerInput)
         {
-            shootInput = Input.GetAxis("Fire1");
-            if (shootInput != 0)
+            _shootInput = Input.GetAxis("Fire1");
+            if (_shootInput != 0)
             {
                 Fire();
             }
@@ -85,9 +85,9 @@ public class FireProjectile : MonoBehaviour
     }
     public void Fire()
     {
-        if (timeSinceLastShot >= shootDelay)
+        if (_timeSinceLastShot >= _shootDelay)
         {
-            timeSinceLastShot = 0;
+            _timeSinceLastShot = 0;
             CreateProjectile();
             PlayFireSound();
             PlayParticle();
@@ -95,19 +95,21 @@ public class FireProjectile : MonoBehaviour
     }
     private void CreateProjectile()
     {
-        GameObject projectileToAdd = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectileRb = projectileToAdd.GetComponent<Rigidbody>();
-        rb.AddRelativeForce(recoilVector, ForceMode.Impulse);
-        projectileRb.AddRelativeForce(new Vector3(0, 0, fireForce), ForceMode.Impulse);
+        GameObject projectileToAdd = Instantiate(_projectilePrefab, _firePoint.position, _firePoint.rotation);
+        projectileToAdd.transform.parent = GameObject.Find("Projectiles").transform;
+        _projectileRb = projectileToAdd.GetComponent<Rigidbody>();
+        _rb.AddRelativeForce(_recoilVector, ForceMode.Impulse);
+        _projectileRb.AddRelativeForce(new Vector3(0, 0, _fireForce), ForceMode.Impulse);
     }
     private void PlayFireSound()
     {
-        audioSource.clip = shootSound;
-        audioSource.Play();
+        _audioSource.clip = _shootSound;
+        _audioSource.Play();
     }
     private void PlayParticle()
     {
-        GameObject shootParticle = Instantiate(shootParticlePrefab, firePoint.position, firePoint.rotation);
+        GameObject shootParticle = Instantiate(_shootParticlePrefab, _firePoint.position, _firePoint.rotation);
+        shootParticle.transform.parent = _rb.gameObject.transform;
         shootParticle.GetComponent<ParticleSystem>().Play();
         StartCoroutine(DeleteParticleAfterDuration(shootParticle));
     }
@@ -122,7 +124,7 @@ public class FireProjectile : MonoBehaviour
         if (_debug)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawCube(firePoint.position, new Vector3(0.1f, 0.1f, 0.1f));
+            Gizmos.DrawCube(_firePoint.position, new Vector3(0.1f, 0.1f, 0.1f));
         }
     }
 #endif
