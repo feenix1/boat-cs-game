@@ -8,6 +8,7 @@ public class DestroyOutOfRange : MonoBehaviour
     private SpawnConfigurations _spawnConfigurations;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _safeZoneRadius;
+    [SerializeField] private bool _debug;
     private void Start()
     {
         _spawnConfigurations = gameObject.GetComponent<SpawnConfigurations>();
@@ -46,6 +47,10 @@ public class DestroyOutOfRange : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
+        if (!_debug)
+        {
+            return;
+        }
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_playerTransform.position, _safeZoneRadius);
     }
