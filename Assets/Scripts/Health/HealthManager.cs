@@ -12,12 +12,22 @@ public class HealthManager : MonoBehaviour, IDamageable
     public UnityEvent _onHealthZero;
     public OnHealthChangedEvent _onHealthChanged;
 
+    [SerializeField] private bool _useRespawnInput;
+    private float _respawnAxis;
+
     // Start is called before the first frame update
     void Start()
     {
         _currentHealth = _maxHealth;
     }
-
+    private void Update()
+    {
+        if (Input.GetAxisRaw("Respawn") == 1)
+        {
+            _onHealthZero?.Invoke();
+            this.enabled = false;
+        }
+    }
     public void Damage(float damagePoints)
     {
         if (_currentHealth - damagePoints <= 0)
