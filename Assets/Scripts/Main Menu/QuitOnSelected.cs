@@ -12,7 +12,11 @@ public class QuitOnSelected : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _elementToFadeIn.color = Color.clear;
+        Scene _activeScene = SceneManager.GetActiveScene();
+        if (_activeScene.name == "Main Menu")
+        {
+            _elementToFadeIn.color = Color.clear;
+        }
     }
     public void OnEnter()
     {

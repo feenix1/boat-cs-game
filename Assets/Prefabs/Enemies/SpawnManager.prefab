@@ -52,9 +52,9 @@ MonoBehaviour:
       type: 3}
     _minRadiusFromPlayer: 400
     _maxRadiusFromPlayer: 600
-    _spawnOffset: {x: 0, y: 2, z: 0}
+    _spawnOffset: {x: 0, y: -2, z: 0}
     _secondsBetweenSpawnAttempts: 5
-    _maxSpawns: 10
+    _maxSpawns: 4
     _debug: 0
     _secondsSinceLastSpawnAttempt: 0
     _enemySpawnPositions: []
