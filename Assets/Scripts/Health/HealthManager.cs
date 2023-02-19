@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class OnHealthChangedEvent : UnityEvent<float, float> {}
 public class HealthManager : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float _currentHealth;
+    public float _currentHealth;
     [SerializeField] private float _maxHealth;
     public UnityEvent _onHealthZero;
     public OnHealthChangedEvent _onHealthChanged;

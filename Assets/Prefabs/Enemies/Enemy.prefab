@@ -1571,6 +1571,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4146381331879414578, guid: 638fd8e48e9257b499a5b91dc0d08a9c,
+          type: 3}
+        m_TargetAssemblyTypeName: CountKills, Assembly-CSharp
+        m_MethodName: AddKill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls:
