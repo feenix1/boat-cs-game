@@ -862,10 +862,10 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 109
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 30
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -915,7 +915,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.21388888
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1434,7 +1434,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1442,8 +1442,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.7082291
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 400
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1478,7 +1478,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1493,7 +1493,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.13055556
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   _particlePrefab: {fileID: 6435045441205199768, guid: cde4a629ef9e9c440920828d0283b716,
     type: 3}
   _audioSource: {fileID: 2307807969083149764}
-  _destructionSound: {fileID: 8300000, guid: a1dfc6f95fdf9644e989d35dc0f67594, type: 3}
+  _destructionSound: {fileID: 8300000, guid: 0f4dd43555e75fc44b788b88506de10d, type: 3}
 --- !u!114 &2307807969083149767
 MonoBehaviour:
   m_ObjectHideFlags: 0
