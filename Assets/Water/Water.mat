@@ -145,8 +145,8 @@ Material:
     - _Wave_Tiling: 0.25
     - _Waves_Large_Scale: 0.27
     - _Waves_Large_Strength: 0
-    - _Waves_Small_Scale: 2.13
-    - _Waves_Small_Strength: 1.46
+    - _Waves_Small_Scale: 2.22
+    - _Waves_Small_Strength: 1.24
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
