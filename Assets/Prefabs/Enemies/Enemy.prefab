@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55a4b8353af94b3192d8de6108f5730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
+  _currentHealth: 1000
   _maxHealth: 1000
   _onHealthZero:
     m_PersistentCalls:
@@ -1599,6 +1599,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _useRespawnInput: 0
 --- !u!114 &2307807969083149765
 MonoBehaviour:
   m_ObjectHideFlags: 0
