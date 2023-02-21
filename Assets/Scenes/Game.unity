@@ -796,8 +796,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: -0.00093616167, y: 0.997449, z: -0.070123605, w: -0.013316108}
-  m_LocalPosition: {x: 0.7555291, y: 9.299144, z: 28.291548}
+  m_LocalRotation: {x: -0.0009361649, y: 0.997449, z: -0.070123605, w: -0.0133161545}
+  m_LocalPosition: {x: 0.75553006, y: 9.299144, z: 28.291548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1393,8 +1393,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578597071}
-  m_LocalRotation: {x: -0.00093616167, y: 0.997449, z: -0.070123605, w: -0.013316108}
-  m_LocalPosition: {x: 0.7555291, y: 9.299144, z: 28.291548}
+  m_LocalRotation: {x: -0.0009361649, y: 0.997449, z: -0.070123605, w: -0.0133161545}
+  m_LocalPosition: {x: 0.75553006, y: 9.299144, z: 28.291548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1653,20 +1653,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1647514957}
     m_Modifications:
-    - target: {fileID: 5086942082259265335, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
-        type: 3}
-      propertyPath: _transformToFollow
-      value: 
-      objectReference: {fileID: 543450653348189428}
     - target: {fileID: 5086942082259265338, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
         type: 3}
       propertyPath: m_Name
       value: Water (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5086942082259265338, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5608004578575187328, guid: 92b46d8e8c39efd4eb6b3056b922dbb7,
         type: 3}
@@ -1723,8 +1713,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5086942082259265335, guid: 92b46d8e8c39efd4eb6b3056b922dbb7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b46d8e8c39efd4eb6b3056b922dbb7, type: 3}
 --- !u!1001 &1051389718
 PrefabInstance:
@@ -2906,7 +2895,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d9a934a9ae49f74a9b1442e0babc894, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.765
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2914,7 +2903,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 193
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 30
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -3157,8 +3146,8 @@ MonoBehaviour:
   _waveOffset: -0.98
   _waveMin: -1
   _waveMax: 12312
-  _wavesSmallScale: 2.13
-  _wavesSmallStrength: 1.46
+  _wavesSmallScale: 2.22
+  _wavesSmallStrength: 1.24
   _wavesSmallVelocity: {x: -17.3, y: -30.5}
   _wavesLargeScale: 0.27
   _wavesLargeStrength: 0
