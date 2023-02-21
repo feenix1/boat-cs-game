@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.17194015, g: 0.20563243, b: 0.24481003, a: 1}
+  m_IndirectSpecularColor: {r: 0.17193967, g: 0.20563187, b: 0.24480909, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use Arrow Keys to Move/Shoot - Press R or ESC to Respawn
+  m_text: Use Joystick to Move - Down to Shoot - Left to Submit - Press Up to Respawn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4158d8e4bc5b0f64b8db64a8fd66a62c, type: 2}
   m_sharedMaterial: {fileID: 1662747996479179844, guid: 4158d8e4bc5b0f64b8db64a8fd66a62c,
@@ -3236,8 +3236,8 @@ MonoBehaviour:
   _waveOffset: -0.98
   _waveMin: -1
   _waveMax: 12312
-  _wavesSmallScale: 2.13
-  _wavesSmallStrength: 1.46
+  _wavesSmallScale: 2.22
+  _wavesSmallStrength: 1.24
   _wavesSmallVelocity: {x: -17.3, y: -30.5}
   _wavesLargeScale: 0.27
   _wavesLargeStrength: 0
