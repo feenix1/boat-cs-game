@@ -1,2 +1,3 @@
 # boat game
  
+funny boat
